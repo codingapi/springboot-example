@@ -1,4 +1,4 @@
-package com.codingapi.springboot.example.infrastructure.jap.repository;
+package com.codingapi.springboot.example.infrastructure.repository;
 
 import com.codingapi.springboot.example.infrastructure.entity.DemoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

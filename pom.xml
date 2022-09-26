@@ -2,13 +2,23 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>example-restapi</module>
+        <module>example-application</module>
+        <module>example-domain</module>
+        <module>example-infrastructure-jpa</module>
+    </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <groupId>com.codingapi.springboot</groupId>
     <artifactId>springboot-example</artifactId>
+    <version>1.4.5</version>
 
     <name>springboot-example</name>
     <description>springboot-example project for Spring Boot</description>

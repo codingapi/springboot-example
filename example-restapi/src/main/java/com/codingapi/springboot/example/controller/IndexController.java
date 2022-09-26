@@ -1,4 +1,4 @@
-package com.codingapi.springboot.example.ui.controller;
+package com.codingapi.springboot.example.controller;
 
 import com.codingapi.springboot.framework.dto.response.Response;
 import com.codingapi.springboot.framework.exception.LocaleMessageException;
