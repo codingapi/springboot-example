@@ -1,4 +1,4 @@
-package com.codingapi.springboot.example.infrastructure.dto;
+package com.codingapi.springboot.example.infrastructure.jpa.dto;
 
 import com.codingapi.springboot.framework.dto.request.PageRequest;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.codingapi.springboot.example.infrastructure.entity;
+package com.codingapi.springboot.example.infrastructure.jpa.entity;
 
 import lombok.Getter;
 import lombok.Setter;

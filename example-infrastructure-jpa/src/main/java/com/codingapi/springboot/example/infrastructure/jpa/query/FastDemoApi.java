@@ -1,7 +1,7 @@
-package com.codingapi.springboot.example.infrastructure.query;
+package com.codingapi.springboot.example.infrastructure.jpa.query;
 
-import com.codingapi.springboot.example.infrastructure.dto.DemoDTO;
-import com.codingapi.springboot.example.infrastructure.entity.DemoEntity;
+import com.codingapi.springboot.example.infrastructure.jpa.dto.DemoDTO;
+import com.codingapi.springboot.example.infrastructure.jpa.entity.DemoEntity;
 import com.codingapi.springboot.fast.annotation.FastController;
 import com.codingapi.springboot.fast.annotation.FastMapping;
 import com.codingapi.springboot.framework.dto.response.MultiResponse;

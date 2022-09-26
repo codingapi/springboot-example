@@ -1,9 +1,9 @@
-package com.codingapi.springboot.example.infrastructure.impl;
+package com.codingapi.springboot.example.infrastructure.jpa.repository.impl;
 
 import com.codingapi.springboot.example.domain.entity.Demo;
 import com.codingapi.springboot.example.domain.repository.DemoRepository;
-import com.codingapi.springboot.example.infrastructure.entity.DemoEntity;
-import com.codingapi.springboot.example.infrastructure.repository.DemoEntityRepository;
+import com.codingapi.springboot.example.infrastructure.jpa.entity.DemoEntity;
+import com.codingapi.springboot.example.infrastructure.jpa.jpa.repository.DemoEntityRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

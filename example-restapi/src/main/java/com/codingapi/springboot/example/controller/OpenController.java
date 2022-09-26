@@ -1,8 +1,8 @@
 package com.codingapi.springboot.example.controller;
 
 import com.codingapi.springboot.example.application.executor.DemoExecutor;
-import com.codingapi.springboot.example.infrastructure.entity.DemoEntity;
-import com.codingapi.springboot.example.infrastructure.repository.DemoEntityRepository;
+import com.codingapi.springboot.example.infrastructure.jpa.entity.DemoEntity;
+import com.codingapi.springboot.example.infrastructure.jpa.jpa.repository.DemoEntityRepository;
 import com.codingapi.springboot.framework.dto.request.PageRequest;
 import com.codingapi.springboot.framework.dto.response.MultiResponse;
 import com.codingapi.springboot.framework.dto.response.Response;
