@@ -5,7 +5,7 @@
     <parent>
         <artifactId>springboot-example</artifactId>
         <groupId>com.codingapi.springboot</groupId>
-        <version>1.4.7</version>
+        <version>1.4.8</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -22,13 +22,13 @@
         <dependency>
             <groupId>com.codingapi.springboot</groupId>
             <artifactId>example-infrastructure-jpa</artifactId>
-            <version>1.4.7</version>
+            <version>1.4.8</version>
         </dependency>
 
         <dependency>
             <groupId>com.codingapi.springboot</groupId>
             <artifactId>example-application</artifactId>
-            <version>1.4.7</version>
+            <version>1.4.8</version>
         </dependency>
 
 
