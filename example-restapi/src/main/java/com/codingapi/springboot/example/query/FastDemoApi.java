@@ -8,10 +8,7 @@ import com.codingapi.springboot.framework.dto.response.MultiResponse;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.transaction.Transactional;
-
 @FastController
-@Transactional
 public interface FastDemoApi {
 
 
