@@ -24,8 +24,29 @@ SpringBoot DDD Architecture | SpringBoot DDD 框架图
 * 集成业务
 
 ## 管理系统界面
+
 ![login](docs/img/login.png)
 ![login](docs/img/home.png)
+
+### antd-pro
+antd-pro基于react的管理系统界面框架，提供了丰富的组件，可以快速的开发管理系统界面。本项目基于antd-pro umi@4版本开发。
+
+运行步骤：
+```shell
+cd web
+npm install
+npm start
+```
+
+打包步骤：
+```shell
+cd scripts
+# linux 环境 
+sh package.sh
+# windows 环境
+./package.bat
+```
+更多详情请参考：https://pro.ant.design/docs/getting-started-cn
 
 ## 推荐的框架与软件
 
