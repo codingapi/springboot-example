@@ -41,6 +41,12 @@ export default [
     ],
   },
   {
+    name: 'table',
+    icon: 'table',
+    path: '/table',
+    component: './table',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
