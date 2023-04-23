@@ -41,7 +41,7 @@ export default [
     ],
   },
   {
-    name: 'table',
+    name: 'list.table-list',
     icon: 'table',
     path: '/table',
     component: './table',

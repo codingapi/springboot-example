@@ -13,7 +13,7 @@ export async function list(
   },
   options?: { [key: string]: any },
 ) {
-  return request<API.Response<any>>('/api/table/server/list', {
+  return request<API.Response<any>>('/api/server/list', {
     method: 'GET',
     params: {
       ...params,
@@ -27,7 +27,21 @@ export async function save(body: {
   name:string,
   url:string
 }, options?: { [key: string]: any }) {
-  return request<API.Response<any>>('/api/table/server/save', {
+  return request<API.Response<any>>('/api/server/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+
+export async function del(body: {
+  id:string,
+}, options?: { [key: string]: any }) {
+  return request<API.Response<any>>('/api/server/del', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

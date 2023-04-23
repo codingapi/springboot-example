@@ -1,6 +1,12 @@
 ﻿import type {RequestOptions} from '@@/plugin-request/request';
 import type {RequestConfig} from '@umijs/max';
 import {message} from 'antd';
+import {logout} from "@/services/api/login";
+
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 
 /**
@@ -41,12 +47,34 @@ export const errorConfig: RequestConfig = {
 
   // 响应拦截器
   responseInterceptors: [
-    (response) => {
+    // @ts-ignore
+    async (response) => {
       // 拦截响应数据，进行个性化处理
-      const { data } = response as unknown as any;
-
-      if (data?.success === false) {
-        message.error('请求失败！');
+      if (response.status === 200) {
+        const headers = response.headers;
+        const authorization = headers['authorization'];
+        if(authorization) {
+          localStorage.setItem('token', authorization);
+        }
+        const res = response.data as API.Response<any>;
+        if (res['success'] !== undefined) {
+          if (res.success) {
+            const headers = response.headers;
+            const authorization = headers['authorization'];
+            if (authorization) {
+              localStorage.setItem('token', authorization);
+            }
+          } else {
+            const code = res.errCode;
+            if (code === 'token.expire' || code === 'token.error') {
+              message.error('登陆已经失效，即将退出系统，请重新登陆.');
+              await sleep(2000);
+              await logout();
+            } else {
+              message.error(res.errMessage);
+            }
+          }
+        }
       }
       return response;
     },

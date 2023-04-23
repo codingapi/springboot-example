@@ -1,11 +1,9 @@
 import {GithubOutlined} from '@ant-design/icons';
 import {DefaultFooter} from '@ant-design/pro-components';
-import {useIntl} from '@umijs/max';
 import React, {useEffect, useState} from 'react';
 import {getVersion} from "@/services/api/login";
 
 const Footer: React.FC = () => {
-  const intl = useIntl();
 
   const defaultMessage = "Created by codingapi"
 
@@ -18,7 +16,7 @@ const Footer: React.FC = () => {
       // @ts-ignore
       setVersion(res);
     })
-  }, [version]);
+  }, []);
 
   return (
     <DefaultFooter
