@@ -1,7 +1,7 @@
 package com.codingapi.springboot.example.query;
 
-import com.codingapi.springboot.example.infrastructure.jpa.dto.DemoDTO;
 import com.codingapi.springboot.example.infrastructure.jpa.entity.DemoEntity;
+import com.codingapi.springboot.example.infrastructure.jpa.pojo.PageSearch;
 import com.codingapi.springboot.fast.annotation.FastController;
 import com.codingapi.springboot.fast.annotation.FastMapping;
 import com.codingapi.springboot.framework.dto.response.MultiResponse;
@@ -18,7 +18,7 @@ public interface FastDemoApi {
             mapping = "/api/demo/findByName1",
             value = "select d from DemoEntity d where name = :name",
             countQuery = "select count(d) from DemoEntity d where name = :name")
-    MultiResponse<DemoEntity> findByName1(DemoDTO.DemoQuery query);
+    MultiResponse<DemoEntity> findByName1(PageSearch query);
 
 
 
@@ -28,6 +28,6 @@ public interface FastDemoApi {
             mapping = "/api/demo/findByName2",
             value = "select d from DemoEntity d where name = :name",
             countQuery = "select count(d) from DemoEntity d where name = :name")
-    MultiResponse<DemoEntity> findByName2(DemoDTO.DemoQuery query);
+    MultiResponse<DemoEntity> findByName2(PageSearch query);
 
 }

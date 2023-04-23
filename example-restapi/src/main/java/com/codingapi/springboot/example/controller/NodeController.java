@@ -1,9 +1,9 @@
 package com.codingapi.springboot.example.controller;
 
-import com.codingapi.springboot.example.entity.Node;
-import com.codingapi.springboot.example.jpa.NodeRepository;
-import com.codingapi.springboot.example.pojo.IdIntRequest;
-import com.codingapi.springboot.example.pojo.PageSearch;
+import com.codingapi.springboot.example.infrastructure.jpa.entity.NodeEntity;
+import com.codingapi.springboot.example.infrastructure.jpa.jpa.repository.NodeEntityRepository;
+import com.codingapi.springboot.example.infrastructure.jpa.pojo.IdIntRequest;
+import com.codingapi.springboot.example.infrastructure.jpa.pojo.PageSearch;
 import com.codingapi.springboot.framework.dto.response.MultiResponse;
 import com.codingapi.springboot.framework.dto.response.Response;
 import lombok.AllArgsConstructor;
@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class NodeController {
 
-    private final NodeRepository nodeRepository;
+    private final NodeEntityRepository nodeEntityRepository;
 
     @GetMapping("/list")
-    public MultiResponse<Node> list(PageSearch pageSearch) {
-        return MultiResponse.of(nodeRepository.findAll(pageSearch));
+    public MultiResponse<NodeEntity> list(PageSearch pageSearch) {
+        return MultiResponse.of(nodeEntityRepository.findAllByNameLike(pageSearch.getLikeName(), pageSearch));
     }
 
     @PostMapping("/save")
-    public Response save(@RequestBody Node node) {
-        nodeRepository.save(node);
+    public Response save(@RequestBody NodeEntity nodeEntity) {
+        nodeEntityRepository.save(nodeEntity);
         return Response.buildSuccess();
     }
 
     @PostMapping("/del")
     public Response del(@RequestBody IdIntRequest request) {
-        nodeRepository.deleteById(request.getId());
+        nodeEntityRepository.deleteById(request.getId());
         return Response.buildSuccess();
     }
 }

@@ -1,4 +1,4 @@
-package com.codingapi.springboot.example.pojo;
+package com.codingapi.springboot.example.infrastructure.jpa.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
