@@ -4,7 +4,6 @@ import type {ActionType, ProColumns} from '@ant-design/pro-components';
 import {ModalForm, PageContainer, ProFormText, ProFormTextArea, ProTable,} from '@ant-design/pro-components';
 import {Button, Form, message} from 'antd';
 import React, {useRef, useState} from 'react';
-import {forEach} from "lodash";
 
 
 const handleAdd = async (fields: any) => {
@@ -22,13 +21,11 @@ const handleAdd = async (fields: any) => {
 };
 
 
-const Shadow: React.FC = () => {
+const Table: React.FC = () => {
 
   const actionRef = useRef<ActionType>();
   const [form] = Form.useForm<{name:string;url:string}>();
   const [createModalOpen, handleModalOpen] = useState<boolean>(false);
-  // const [currentRow, setCurrentRow] = useState();
-
 
   const columns: ProColumns<any>[] = [
     {
@@ -93,12 +90,6 @@ const Shadow: React.FC = () => {
             form.resetFields();
           },
         }}
-        initialValues={
-          {
-            name:form?.name,
-            url:form?.url
-          }
-        }
         open={createModalOpen}
         onOpenChange={handleModalOpen}
         onFinish={async (value) => {
@@ -136,4 +127,4 @@ const Shadow: React.FC = () => {
   );
 };
 
-export default Shadow;
+export default Table;
