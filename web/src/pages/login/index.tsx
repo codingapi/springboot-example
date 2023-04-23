@@ -86,7 +86,7 @@ const Login: React.FC = () => {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('username', res.data.username);
         let avatar = res.data.avatar;
-        if(avatar){
+        if(avatar===undefined){
           avatar = '/logo.svg';
         }
         localStorage.setItem('avatar', avatar);
