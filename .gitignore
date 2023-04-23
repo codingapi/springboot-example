@@ -31,5 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
-*.mv.db
-*.trace.db
+*.db
+
+**/src/main/resources/static/

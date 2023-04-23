@@ -6,7 +6,8 @@ SpringBoot DDD Architecture | SpringBoot DDD 框架图
 
 ## 依赖框架
 
-[springboot-framework](https://github.com/codingapi/springboot-framework)
+[springboot-framework](https://github.com/codingapi/springboot-framework)  
+[antd-pro](https://pro.ant.design/zh-CN/)
 
 ## 推荐DDD的三个理由
 
@@ -21,6 +22,10 @@ SpringBoot DDD Architecture | SpringBoot DDD 框架图
 * 设计模型
 * 单元测试
 * 集成业务
+
+## 管理系统界面
+![login](docs/img/login.png)
+![login](docs/img/home.png)
 
 ## 推荐的框架与软件
 
