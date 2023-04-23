@@ -85,7 +85,11 @@ const Login: React.FC = () => {
 
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('username', res.data.username);
-        localStorage.setItem('avatar', '/logo.svg');
+        let avatar = res.data.avatar;
+        if(avatar){
+          avatar = '/logo.svg';
+        }
+        localStorage.setItem('avatar', avatar);
         localStorage.setItem('authorities', res.data.authorities.join(","));
 
         message.success(defaultLoginSuccessMessage);

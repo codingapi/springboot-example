@@ -5,7 +5,12 @@ import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
 
-const { REACT_APP_ENV = 'dev' } = process.env;
+const { REACT_APP_ENV = 'dev',MOCK } = process.env;
+
+let proxyEnv = REACT_APP_ENV;
+if (!MOCK) {
+  proxyEnv = 'none';
+}
 
 export default defineConfig({
   /**
@@ -57,7 +62,7 @@ export default defineConfig({
    * @doc 代理介绍 https://umijs.org/docs/guides/proxy
    * @doc 代理配置 https://umijs.org/docs/api/config#proxy
    */
-  proxy: proxy[REACT_APP_ENV as keyof typeof proxy],
+  proxy: proxy[proxyEnv as keyof typeof proxy],
   /**
    * @name 快速热更新配置
    * @description 一个不错的热更新组件，更新时可以保留 state
