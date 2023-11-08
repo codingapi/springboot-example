@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
   useEffect(() => {
     getVersion().then(res => {
       // @ts-ignore
-      setVersion(res);
+      setVersion(res.data);
     })
   }, []);
 
