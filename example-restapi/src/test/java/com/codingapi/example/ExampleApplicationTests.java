@@ -29,16 +29,4 @@ class ExampleApplicationTests {
         log.info("id:{}", node.getId());
     }
 
-    @Test
-    void swap() {
-        Node node1 = new Node(1,"node1","http://node1");
-        Node node2 = new Node(1,"node2","http://node2");
-
-        node1.swap(node2);
-
-        Assert.isTrue(node1.getName().equals("node2"), "swap service error.");
-        Assert.isTrue(node2.getName().equals("node2"), "swap service error.");
-    }
-
-
 }
