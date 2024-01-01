@@ -9,7 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FastController
-public interface FastDemoApi {
+public interface FastNodeApi {
 
 
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
