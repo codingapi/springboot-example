@@ -2,6 +2,7 @@ package com.codingapi.example.domain;
 
 import com.codingapi.example.event.NodeEvent;
 import com.codingapi.springboot.framework.event.EventPusher;
+import jakarta.persistence.*;
 import lombok.*;
 
 /**
@@ -13,12 +14,16 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Node implements Cloneable{
+@Entity
+public class Node implements Cloneable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
+    @Column(columnDefinition = "text")
     private String url;
 
     @SneakyThrows

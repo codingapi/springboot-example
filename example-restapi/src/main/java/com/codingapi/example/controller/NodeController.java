@@ -1,8 +1,7 @@
 package com.codingapi.example.controller;
 
 import com.codingapi.example.domain.Node;
-import com.codingapi.example.infrastructure.jpa.convert.NodeConvertor;
-import com.codingapi.example.infrastructure.jpa.jpa.repository.NodeEntityRepository;
+import com.codingapi.example.infrastructure.jpa.jpa.JpaNodeRepository;
 import com.codingapi.example.service.NodeService;
 import com.codingapi.springboot.framework.dto.request.IdRequest;
 import com.codingapi.springboot.framework.dto.request.PageRequest;
@@ -18,11 +17,11 @@ public class NodeController {
 
     private final NodeService nodeService;
 
-    private final NodeEntityRepository nodeEntityRepository;
+    private final JpaNodeRepository jpaNodeRepository;
 
     @GetMapping("/list")
     public MultiResponse<Node> list(PageRequest request) {
-        return MultiResponse.of(nodeEntityRepository.pageRequest(request).map(NodeConvertor::convert));
+        return MultiResponse.of(jpaNodeRepository.pageRequest(request));
     }
 
     @PostMapping("/save")
