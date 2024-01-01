@@ -15,19 +15,11 @@ public interface FastDemoApi {
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     @FastMapping(
             method = RequestMethod.GET,
-            mapping = "/api/demo/findByName1",
-            value = "select d from DemoEntity d where name = :name",
-            countQuery = "select count(d) from DemoEntity d where name = :name")
-    MultiResponse<NodeEntity> findByName1(SearchRequest request);
+            mapping = "/api/node/fastQuery",
+            value = "select d from NodeEntity d where name = :name",
+            countQuery = "select count(d) from NodeEntity d where name = :name")
+    MultiResponse<NodeEntity> fastQuery(SearchRequest request);
 
 
-
-    @PreAuthorize(value = "hasRole('ROLE_USER')")
-    @FastMapping(
-            method = RequestMethod.GET,
-            mapping = "/api/demo/findByName2",
-            value = "select d from DemoEntity d where name = :name",
-            countQuery = "select count(d) from DemoEntity d where name = :name")
-    MultiResponse<NodeEntity> findByName2(SearchRequest request);
 
 }
