@@ -1,4 +1,12 @@
+// @ts-ignore
+/* eslint-disable */
+
 declare namespace API {
+  type CurrentUser = {
+    username?: string;
+    authorities?: string[];
+    avatar?: string;
+  };
 
   type Response<T> = {
     status: string;
@@ -8,20 +16,31 @@ declare namespace API {
     data: T;
   }
 
-  type PageResponse<T> = {
-    success: boolean;
-    errCode: string;
-    errMessage: string;
-    data: {
-      total: number;
-      list: T;
-    };
-  }
+}
 
-  type CurrentUser = {
+
+declare namespace Account {
+
+  type LoginResponse = {
+    token: string;
+    username: string;
+    authorities: string[];
+  };
+
+
+  type LoginRequest = {
     username?: string;
-    authorities?:string[];
-    avatar?: string;
+    password?: string;
+    type?: string;
+  };
+}
+
+
+declare namespace Table {
+
+  type SaveCommand = {
+    name: string;
+    url: string;
   };
 
 }

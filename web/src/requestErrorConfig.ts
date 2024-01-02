@@ -1,13 +1,11 @@
-﻿import type {RequestOptions} from '@@/plugin-request/request';
-import type {RequestConfig} from '@umijs/max';
-import {message} from 'antd';
-import {logout} from "@/services/api/login";
-
+﻿import type { RequestOptions } from '@@/plugin-request/request';
+import type { RequestConfig } from '@umijs/max';
+import { message } from 'antd';
+import { logout } from './services/api/account';
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
 
 /**
  * @name 错误处理
@@ -19,12 +17,11 @@ export const errorConfig: RequestConfig = {
   errorConfig: {
     // 错误抛出
     errorThrower: (res) => {
-      console.log(res)
+      throw res;
     },
     // 错误接收及处理
     errorHandler: (error: any, opts: any) => {
-      console.log(error)
-      message.error(error.message);
+      console.log(error, opts);
     },
   },
 
@@ -41,7 +38,7 @@ export const errorConfig: RequestConfig = {
         headers['Authorization'] = token;
       }
       const url = config?.url;
-      return { ...config, url,headers:headers };
+      return { ...config, url, headers: headers };
     },
   ],
 
@@ -53,7 +50,7 @@ export const errorConfig: RequestConfig = {
       if (response.status === 200) {
         const headers = response.headers;
         const authorization = headers['authorization'];
-        if(authorization) {
+        if (authorization) {
           localStorage.setItem('token', authorization);
         }
         const res = response.data as API.Response<any>;

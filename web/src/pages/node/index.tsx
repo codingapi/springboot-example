@@ -5,7 +5,7 @@ import { ModalForm, PageContainer, ProFormText, ProFormTextArea, ProTable, } fro
 import { Button, Form, message,Popconfirm } from 'antd';
 import React, { useRef, useState } from 'react';
 
-const Shadow: React.FC = () => {
+const NodePage: React.FC = () => {
 
   const actionRef = useRef<ActionType>();
   const [form] = Form.useForm<{id:string;name:string;url:string}>();
@@ -174,4 +174,4 @@ const Shadow: React.FC = () => {
   );
 };
 
-export default Shadow;
+export default NodePage;

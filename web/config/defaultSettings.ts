@@ -8,14 +8,14 @@ const Settings: ProLayoutProps & {
   logo?: string;
 } = {
   navTheme: 'light',
-  // 拂晓蓝
-  colorPrimary: '#1890ff',
+  // 极光绿
+  colorPrimary: '#52C41A',
   layout: 'mix',
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'SpringBootExample',
+  title: 'Ant Design Pro',
   pwa: true,
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   iconfontUrl: '',
@@ -26,3 +26,4 @@ const Settings: ProLayoutProps & {
 };
 
 export default Settings;
+

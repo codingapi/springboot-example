@@ -14,8 +14,13 @@ export default [
   {
     path: '/login',
     layout: false,
-    name: 'login',
-    component: './login/index',
+    routes: [
+      {
+        name: 'login',
+        path: '/login',
+        component: './login',
+      },
+    ],
   },
   {
     path: '/welcome',
@@ -27,7 +32,7 @@ export default [
     path: '/admin',
     name: 'admin',
     icon: 'crown',
-    access: 'canAdmin',
+    access: 'isAdmin',
     routes: [
       {
         path: '/admin',

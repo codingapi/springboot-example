@@ -13,16 +13,37 @@ body,
   filter: invert(80%);
 }
 
-.ant-layout-content {
-  min-height: calc(~'100vh - 56pt - 70pt');
-}
-
 .ant-layout {
   min-height: 100vh;
 }
-
 .ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
   left: unset;
+}
+
+
+.ant-pro-setting-drawer-handle {
+  display: @settingDrawer;
+  position: fixed;
+  top: 240px;
+  right: 0;
+  z-index: 0;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 4px 0 0 4px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+
+.ant-layout-content {
+  min-height: 80vh;
 }
 
 canvas {
