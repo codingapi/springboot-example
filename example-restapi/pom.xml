@@ -19,6 +19,7 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>com.codingapi.springboot</groupId>
             <artifactId>example-infrastructure-jpa</artifactId>
