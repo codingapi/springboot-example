@@ -1,6 +1,6 @@
 // @ts-ignore
 /* eslint-disable */
-import {request} from '@umijs/max';
+import {get, post} from "@/services/api/index";
 
 
 export async function list(
@@ -11,42 +11,18 @@ export async function list(
     /** 页面的容量 */
     pageSize?: number;
   },
-  options?: { [key: string]: any },
 ) {
-  return request<API.Response<any>>('/api/node/list', {
-    method: 'GET',
-    params: {
-      ...params,
-    },
-    ...(options || {}),
-  });
+  return  get('/api/node/list',params);
 }
 
 
-export async function save(body: {
-  name:string,
-  url:string
-}, options?: { [key: string]: any }) {
-  return request<API.Response<any>>('/api/node/save', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
-    ...(options || {}),
-  });
+export async function save(body: any) {
+  return  post('/api/node/save',body);
 }
 
 
 export async function del(body: {
   id:string,
-}, options?: { [key: string]: any }) {
-  return request<API.Response<any>>('/api/node/del', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
-    ...(options || {}),
-  });
+}) {
+  return  post('/api/node/delete',body);
 }

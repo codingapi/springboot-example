@@ -1,6 +1,6 @@
 // @ts-ignore
 /* eslint-disable */
-import {request} from '@umijs/max';
+import {get, post} from "@/services/api/index";
 
 
 export async function list(
@@ -11,51 +11,23 @@ export async function list(
     /** 页面的容量 */
     pageSize?: number;
   },
-  options?: { [key: string]: any },
 ) {
-  return request<API.Response<any>>('/api/mvc/list', {
-    method: 'GET',
-    params: {
-      ...params,
-    },
-    ...(options || {}),
-  });
+  return get('/api/api/list', params);
 }
 
 
-export async function test(body: any, options?: { [key: string]: any }) {
-  return request<API.Response<any>>('/api/mvc/test', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
-    ...(options || {}),
-  });
+export async function test(body: any) {
+  return post('/api/api/test', body)
 }
 
 
-export async function save(body: any, options?: { [key: string]: any }) {
-  return request<API.Response<any>>('/api/mvc/save', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
-    ...(options || {}),
-  });
+export async function save(body: any) {
+  return post('/api/api/save', body)
 }
 
 
 export async function del(body: {
-  id:string,
-}, options?: { [key: string]: any }) {
-  return request<API.Response<any>>('/api/mvc/delete', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
-    ...(options || {}),
-  });
+  id: string,
+}) {
+  return post('/api/api/delete', body)
 }

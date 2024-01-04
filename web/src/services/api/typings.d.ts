@@ -35,12 +35,3 @@ declare namespace Account {
   };
 }
 
-
-declare namespace Table {
-
-  type SaveCommand = {
-    name: string;
-    url: string;
-  };
-
-}

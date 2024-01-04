@@ -30,8 +30,8 @@ public class NodeController {
         return Response.buildSuccess();
     }
 
-    @PostMapping("/del")
-    public Response del(@RequestBody IdRequest request) {
+    @PostMapping("/delete")
+    public Response delete(@RequestBody IdRequest request) {
         nodeService.delete(request.getIntId());
         return Response.buildSuccess();
     }
