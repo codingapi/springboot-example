@@ -10,19 +10,19 @@ export async function list(
     current?: number;
     /** 页面的容量 */
     pageSize?: number;
-  },
+  }
 ) {
-  return get('/api/server/list', params);
+  return get('/api/node/list', params);
 }
 
 
-export async function save(body: any, options?: { [key: string]: any }) {
-  return post('/api/server/save', body);
+export async function save(body: any) {
+  return post('/api/node/save', body);
 }
 
 
 export async function del(body: {
-  id: string,
+  id:string,
 }) {
-  return post('/api/server/delete', body);
+  return post('/api/node/delete', body);
 }

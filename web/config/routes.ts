@@ -1,4 +1,5 @@
-﻿/**
+﻿
+/**
  * @name umi 的路由配置
  * @description 只支持 path,component,routes,redirect,wrappers,name,icon 的配置
  * @param path  path 只支持两种占位符配置，第一种是动态参数 :id 的形式，第二种是 * 通配符，通配符只能出现路由字符串的最后。
@@ -10,6 +11,7 @@
  * @param icon 配置路由的图标，取值参考 https://ant.design/components/icon-cn， 注意去除风格后缀和大小写，如想要配置图标为 <StepBackwardOutlined /> 则取值应为 stepBackward 或 StepBackward，如想要配置图标为 <UserOutlined /> 则取值应为 user 或者 User
  * @doc https://umijs.org/docs/guides/routes
  */
+
 export default [
   {
     path: '/login',
@@ -27,12 +29,13 @@ export default [
     name: 'welcome',
     icon: 'smile',
     component: './Welcome',
+    access: 'hasAuthentication',
   },
   {
     path: '/admin',
     name: 'admin',
     icon: 'crown',
-    access: 'isAdmin',
+    access: 'hasAuthentication',
     routes: [
       {
         path: '/admin',
@@ -46,10 +49,11 @@ export default [
     ],
   },
   {
-    name: 'node',
+    name: 'list.table-list',
     icon: 'table',
-    path: '/node',
-    component: './node',
+    path: '/list',
+    component: './table',
+    access: 'hasAuthentication',
   },
   {
     path: '/',

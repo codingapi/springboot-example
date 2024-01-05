@@ -3,9 +3,8 @@ import type { RequestConfig } from '@umijs/max';
 import { message } from 'antd';
 import { logout } from './services/api/account';
 
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+
+const sleep = (ms: number) => new Promise((resolve) => {setTimeout(resolve, ms)});
 
 /**
  * @name 错误处理

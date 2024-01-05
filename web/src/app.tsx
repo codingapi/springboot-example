@@ -2,12 +2,14 @@ import Footer from '@/components/Footer';
 import { Question, SelectLang } from '@/components/RightContent';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
 import { SettingDrawer } from '@ant-design/pro-components';
-import type {  RunTimeLayoutConfig } from '@umijs/max';
+import type { RunTimeLayoutConfig } from '@umijs/max';
 import { history } from '@umijs/max';
 import defaultSettings from '../config/defaultSettings';
 import { errorConfig } from './requestErrorConfig';
 import React from 'react';
 import { AvatarDropdown, AvatarName } from './components/RightContent/AvatarDropdown';
+import { loadLayoutMenus, loadLoayoutMenuAuthentications } from './components/Menu';
+import { menus } from '@/services/api/account'
 const loginPath = '/user/login';
 
 /**
@@ -24,7 +26,7 @@ export async function getInitialState(): Promise<{
       const localUser = {
         avatar: localStorage.getItem('avatar'),
         username: localStorage.getItem('username'),
-        authorities:localStorage.getItem('authorities'),
+        authorities: localStorage.getItem('authorities'),
       };
       return localUser;
     } catch (error) {
@@ -58,6 +60,19 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
       render: (_, avatarChildren) => {
         return <AvatarDropdown>{avatarChildren}</AvatarDropdown>;
       },
+    },
+    menu: {
+      request: async (params,defaultMenuData) => {
+        try{
+          const response = await menus();
+          const authentications = await loadLoayoutMenuAuthentications(response);
+          localStorage.setItem('authentications', JSON.stringify(authentications));
+          return await loadLayoutMenus(response);
+        }catch(error){
+          localStorage.removeItem('authentications');
+          return defaultMenuData
+        }
+      }
     },
     waterMarkProps: {
       content: initialState?.currentUser?.username,

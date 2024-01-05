@@ -49,5 +49,10 @@ export default {
   'menu.editor.flow': 'Flow Editor',
   'menu.editor.mind': 'Mind Editor',
   'menu.editor.koni': 'Koni Editor',
-  'menu.node': 'Node Manager',
+  'menu.components': 'Components',
+  'menu.components.api': 'Dynamic API',
+  'menu.components.menu': 'Menus',
+  'menu.components.parameter': 'Parameter',
+  'menu.components.oss': 'Files',
+  'menu.components.oss.test': 'File Test',
 };

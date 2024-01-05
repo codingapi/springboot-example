@@ -2,7 +2,8 @@
 /* eslint-disable */
 import {history} from '@umijs/max';
 import {stringify} from 'querystring';
-import {post} from "@/services/api/index";
+import {post,get} from "./index";
+
 
 
 export function logout() {
@@ -32,3 +33,11 @@ export async function login(body: Account.LoginRequest) {
   return post('/user/login', body);
 }
 
+
+/**
+ * 获取用户菜单
+ * @returns 菜单列表
+ */
+export async function menus(){
+  return get('/api/menus');
+}
