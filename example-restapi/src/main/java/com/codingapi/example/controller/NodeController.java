@@ -3,8 +3,8 @@ package com.codingapi.example.controller;
 import com.codingapi.example.domain.Node;
 import com.codingapi.example.infrastructure.jpa.jpa.JpaNodeRepository;
 import com.codingapi.example.service.NodeService;
+import com.codingapi.springboot.fast.jpa.repository.SearchRequest;
 import com.codingapi.springboot.framework.dto.request.IdRequest;
-import com.codingapi.springboot.framework.dto.request.PageRequest;
 import com.codingapi.springboot.framework.dto.response.MultiResponse;
 import com.codingapi.springboot.framework.dto.response.Response;
 import lombok.AllArgsConstructor;
@@ -20,8 +20,8 @@ public class NodeController {
     private final JpaNodeRepository jpaNodeRepository;
 
     @GetMapping("/list")
-    public MultiResponse<Node> list(PageRequest request) {
-        return MultiResponse.of(jpaNodeRepository.pageRequest(request));
+    public MultiResponse<Node> list(SearchRequest request) {
+        return MultiResponse.of(jpaNodeRepository.searchRequest(request));
     }
 
     @PostMapping("/save")

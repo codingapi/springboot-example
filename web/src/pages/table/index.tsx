@@ -1,7 +1,7 @@
 import { list, save, del } from '@/services/api/table';
 import { PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ModalForm, PageContainer, ProFormText, ProFormTextArea,ProTable } from '@ant-design/pro-components';
+import { ModalForm, PageContainer, ProFormSelect, ProFormText, ProTable } from '@ant-design/pro-components';
 import { Button, Form, message, Popconfirm } from 'antd';
 import React, { useRef, useState } from 'react';
 
@@ -47,16 +47,41 @@ const TablePage: React.FC = () => {
     {
       title: "编号",
       dataIndex: 'id',
-      search: false,
+      sorter: true,
     },
     {
       title: "服务名称",
       dataIndex: 'name',
+      sorter: true,
     },
     {
       title: "地址",
       dataIndex: 'url',
       search: false,
+    },
+    {
+      title: "状态",
+      dataIndex: 'state',
+      filters: [
+        {
+          text: '禁用',
+          value: 0,
+        },
+        {
+          text: '启用',
+          value: 1,
+        },
+      ],
+      valueEnum: {
+        0: {
+          text: '禁用',
+          status: 'Error'
+        },
+        1: {
+          text: '启用',
+          status: 'Success'
+        },
+      },
     },
     {
       title: "操作",
@@ -111,7 +136,12 @@ const TablePage: React.FC = () => {
           </Button>,
         ]}
         request={async (params, sort, filter) => {
-          const res = await list(params);
+          console.log(params, sort, filter);
+          const res = await list({
+            ...params,
+            sort: Buffer.from(JSON.stringify(sort)).toString('base64'),
+            filter: Buffer.from(JSON.stringify(filter)).toString('base64'),
+          });
           return {
             data: res.data.list,
             success: res.success,
@@ -125,6 +155,9 @@ const TablePage: React.FC = () => {
       <ModalForm
         title="新建规则"
         form={form}
+        initialValues={{
+          state: 1,
+        }}
         modalProps={{
           destroyOnClose: true,
           onCancel: () => {
@@ -148,6 +181,7 @@ const TablePage: React.FC = () => {
           name="id"
         />
         <ProFormText
+          label="服务名称"
           placeholder="请输入服务名称"
           rules={[
             {
@@ -157,7 +191,8 @@ const TablePage: React.FC = () => {
           ]}
           name="name"
         />
-        <ProFormTextArea
+        <ProFormText
+          label="服务地址"
           rules={[
             {
               required: true,
@@ -166,6 +201,28 @@ const TablePage: React.FC = () => {
           ]}
           placeholder="请输入服务地址"
           name="url" />
+
+        <ProFormSelect
+          label="服务状态"
+          placeholder="请输入服务状态"
+          rules={[
+            {
+              required: true,
+              message: "请输入服务状态",
+            },
+          ]}
+          options={[
+            {
+              label: '启用',
+              value: 1,
+            },
+            {
+              label: '禁用',
+              value: 0,
+            },
+          ]}
+          name="state"
+        />
       </ModalForm>
 
     </PageContainer>
