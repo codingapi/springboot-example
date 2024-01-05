@@ -48,6 +48,7 @@ const TablePage: React.FC = () => {
       title: "编号",
       dataIndex: 'id',
       sorter: true,
+      search: false,
     },
     {
       title: "服务名称",
