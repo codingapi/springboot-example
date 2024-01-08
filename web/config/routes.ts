@@ -56,6 +56,13 @@ export default [
     access: 'hasAuthentication',
   },
   {
+    name: 'test',
+    icon: 'bug',
+    path: '/test',
+    component: './test',
+    access: 'hasAuthentication',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },

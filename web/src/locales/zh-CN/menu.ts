@@ -55,4 +55,5 @@ export default {
   'menu.components.parameter': '参数管理',
   'menu.components.oss': '文件管理',
   'menu.components.oss.test': '文件测试',
+  'menu.test': '测试界面',
 };

@@ -55,4 +55,5 @@ export default {
   'menu.components.parameter': 'Parameter',
   'menu.components.oss': 'Files',
   'menu.components.oss.test': 'File Test',
+  'menu.test': 'Test',
 };
