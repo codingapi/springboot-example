@@ -59,7 +59,7 @@ export default [
     name: 'test',
     icon: 'bug',
     path: '/test',
-    component: './test',
+    component: './test/index2',
     access: 'hasAuthentication',
   },
   {
