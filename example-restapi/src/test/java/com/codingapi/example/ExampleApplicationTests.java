@@ -22,7 +22,7 @@ class ExampleApplicationTests {
     @Test
     @Transactional
     void save() {
-        Node node = new Node(1,"node1","http://node1");
+        Node node = new Node(1,"node1","http://node1", Node.State.ENABLE);
         nodeRepository.save(node);
 
         Assert.isTrue(node.getId() > 0, "nodeRepository save error.");

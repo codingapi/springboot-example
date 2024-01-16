@@ -7,8 +7,8 @@ class NodeTest {
 
     @Test
     void swap() {
-        Node node1 = new Node(1,"node1","http://node1");
-        Node node2 = new Node(1,"node2","http://node2");
+        Node node1 = new Node(1,"node1","http://node1", Node.State.ENABLE);
+        Node node2 = new Node(1,"node2","http://node2", Node.State.ENABLE);
 
         node1.swap(node2);
 
