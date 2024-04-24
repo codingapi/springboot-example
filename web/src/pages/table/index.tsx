@@ -142,6 +142,12 @@ const TablePage: React.FC = () => {
             ...params,
             sort: Buffer.from(JSON.stringify(sort)).toString('base64'),
             filter: Buffer.from(JSON.stringify(filter)).toString('base64'),
+            params: Buffer.from(JSON.stringify([
+              {
+                key: 'name',
+                type: 'LIKE'
+              }
+            ])).toString('base64'),
           });
           return {
             data: res.data.list,
