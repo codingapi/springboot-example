@@ -18,13 +18,13 @@
 
     <groupId>com.codingapi.springboot</groupId>
     <artifactId>springboot-example</artifactId>
-    <version>3.2.1</version>
+    <version>3.2.2</version>
 
     <name>springboot-example</name>
     <description>springboot-example project for Spring Boot</description>
     <properties>
         <java.version>17</java.version>
-        <codingapi.framework.version>3.2.1</codingapi.framework.version>
+        <codingapi.framework.version>3.2.2</codingapi.framework.version>
     </properties>
 
     <dependencies>
