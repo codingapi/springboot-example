@@ -18,7 +18,7 @@
 
     <groupId>com.codingapi.springboot</groupId>
     <artifactId>springboot-example</artifactId>
-    <version>3.2.2</version>
+    <version>3.2.3</version>
 
     <name>springboot-example</name>
     <description>springboot-example project for Spring Boot</description>
